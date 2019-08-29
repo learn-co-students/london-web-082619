@@ -9,6 +9,10 @@ class Doctor
         @@all << self
     end
 
+    def patients
+        Patient.all.select{ |p| p.doctor == self }
+    end
+
     def self.all
         @@all
     end
