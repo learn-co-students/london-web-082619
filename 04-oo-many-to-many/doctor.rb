@@ -9,8 +9,20 @@ class Doctor
         @@all << self
     end
 
+    def appointments
+        Appointment.all.select { |a| a.doctor == self }
+    end
+
+    def num_appointments
+        appointments.length
+    end
+
+    def self.busiest
+        self.all.max_by {|doctor| doctor.num_appointments}
+    end
+
     def patients
-        Patient.all.select{ |p| p.doctor == self }
+        appointments.map{ |a| a.patient }.uniq
     end
 
     def self.all
