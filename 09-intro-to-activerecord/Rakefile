@@ -5,3 +5,13 @@ desc "Start our app console"
 task :console do
   Pry.start
 end
+
+# desc 'greet everyone'
+# task :say_hi do
+#   puts "hiiii"
+# end
+
+# desc 'create a new patient'
+# task :new_patient do
+#   Patient.create(name: Faker.Name)
+# end
