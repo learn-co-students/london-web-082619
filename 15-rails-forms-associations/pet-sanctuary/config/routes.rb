@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
 
-  # PETS
-  get "/pets", to: "pets#index", as: "pets"
-  get "/pets/new", to: "pets#new", as: "new_pet"
-  get "/pets/:id", to: "pets#show", as: "pet"
-  get "/pets/:id/edit", to: "pets#edit", as: "edit_pet"
-  post "/pets", to: "pets#create"
-  patch "/pets/:id", to: "pets#update"
-  delete "/pets/:id", to: "pets#destroy"
+  # Static route
+  get "/pets/about", to: "pets#about"
+
+  # Users
+  get "/users", to: "users#index", as: "users"
+  get "/users/:id", to: "users#show", as: "user"
+  delete "/users/:id", to: "users#destroy"
+  # get "/users/:id/edit", to: "users#edit", as "edit_user"
+
+  resources :pets
 end

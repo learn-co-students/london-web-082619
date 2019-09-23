@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h2><%= @user.username %></h2>
+<h3><%= @user.email %></h3>
+<% @user.pets.each do |pet| %>
+  <%= link_to pet.name, pet_path(pet) %>
+<% end %>
+<!-- Creates a link to /users/#{@user.id} and then overrides the get request with a delete, allowing us to match the destroy route for this instance of user -->
+<%= link_to "Delete User", user_path(@user), method: :delete %>

@@ -29,7 +29,7 @@ User.create([
   {
     username: "JonSnow",
     email: "lordsnow@thewall.com"
-  }
+  },
 ])
 
 Pet.create([
