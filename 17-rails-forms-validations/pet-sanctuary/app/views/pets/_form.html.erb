@@ -1,0 +1,24 @@
+<!-- Check if our instance of pet has any errors attached to it. If it does, we iterate through the full_messages for each error, letting the user know what invalid information they have submitted for which attributes -->
+<% if @pet.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being created:</h2>
+
+    <ul>
+    <% @pet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@pet) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+
+  <%= f.collection_select(:user_id, User.all, :id, :username) %>
+
+  <%= f.submit %>
+<% end %>
