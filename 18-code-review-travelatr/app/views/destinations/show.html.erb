@@ -1,0 +1,10 @@
+<p>Name: <%= @destination.name %></p>
+<p>Country: <%= @destination.country %></p>
+<p>Most recent posts:<%= %></p>
+<ul>
+    <% @destination.posts.last(5).each do |post| %>
+        <li><%= post.title %></li>
+    <% end %>
+</ul>
+<%= link_to 'Featured Post', @destination.posts.max_by {|post| post.likes} if @destination.posts.count > 0 %>
+<p>Average Age: <%= @destination.bloggers.sum {|blogger| blogger.age }/@destination.bloggers.count %></p>

@@ -1,0 +1,9 @@
+<%= form_for(@post) do |f|%>
+    <%= f.label :title%>
+    <%= f.text_field :title, required: true%>
+    <%= f.label :content, required: true%>
+    <%= f.text_area :content%>
+    <%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+    <%= f.collection_select :destination_id, Destination.all, :id, :name %>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,5 @@
+<p>Name: <%= @blogger.name %></p>
+<p>Bio: <%= @blogger.bio %></p>
+<p>Age: <%= @blogger.age %></p>
+<p>Total Likes: <%= @blogger.posts.sum {|post| post.likes } %></p>
+<%= link_to 'Featured Post', post_path(@blogger.posts.max_by {|post| post.likes}.id) if @blogger.posts.count > 0 %>
