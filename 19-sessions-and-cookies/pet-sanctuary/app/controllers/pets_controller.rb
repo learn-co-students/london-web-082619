@@ -21,8 +21,10 @@ class PetsController < ApplicationController
 
   def create
     # Create pet here
-    @pet = Pet.create(pet_params)
-    # Check if the instance of pet created with the parameters the user has given us is valid or not. If it is, it will be saved to the database and we just redirect the user to the pets index route. Otherwise, we render the new form again and our instance of pet will now have some errors we can display to the user
+    @pet = Pet.new(pet_params)
+    # We assign this pet to belong to the instance of user that is currently logged in
+    @pet.user = current_user
+    @pet.save
     if @pet.valid?
       redirect_to pets_path
     else
@@ -45,7 +47,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :user_id)
+    params.require(:pet).permit(:name, :age)
   end
 
 end

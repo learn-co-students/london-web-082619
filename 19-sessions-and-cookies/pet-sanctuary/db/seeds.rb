@@ -12,7 +12,7 @@ User.create([
   },
   {
     username: "SansaStark",
-    email: "littlebird@winterfell.com"
+    email: "littlebird@theyrie.com"
   },
   {
     username: "AryaStark",
@@ -20,7 +20,7 @@ User.create([
   },
   {
     username: "BrandonStark",
-    email: "3eyedraven@beyondthewall.com"
+    email: "3eyedcrow@beyondthewall.com"
   },
   {
     username: "RickonStark",
