@@ -4,34 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body {
+        text-align: center;
+        background-color: hotpink;
+      }
+      * {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      li:hover {
+        color: red;
+      }
+    </style>
     <title>Document</title>
   </head>
   <body>
     <h1>this is a website</h1>
-    <div>
-      <p>select mode:</p>
-      <button id="get">get</button>
-      <button id="post">post</button>
-      <button id="put">put</button>
-      <button id="patch">patch</button>
-      <button id="delete">delete</button>
-    </div>
-    <div>list of posts:</div>
-    <div id="loading">LOADING...</div>
     <form>
-      <p>server business:</p>
-      <div>
-        <input type="text" />
-        <label for=""></label>
-      </div>
-      <div>
-        <input type="text" />
-        <label for=""></label>
-      </div>
-      <div>
-        <input type="submit" value="get all posts" />
-      </div>
+      <label for="title">title</label>
+      <input id="title" type="text" />
+      <label for="author">author</label>
+      <input id="author" type="text" />
+      <input
+        id="do-the-thing"
+        type="submit"
+        value="do the thing ( why is it vague? )"
+      />
     </form>
+
+    <br />
+    <div>
+      <span>make a request!</span>
+      <br />
+      <button id="get">get (to get all posts)</button>
+      <br />
+      <button id="post">post (to create a new post)</button>
+      <br />
+      <button id="put">put (to edit (quite aggresively))</button>
+      <br />
+      <button id="patch">patch (to gently edit)</button>
+    </div>
+    <div>
+      <p>list of posts:</p>
+      <ul id="list-of-posts"></ul>
+    </div>
+    <script src="./src/lib/api.js"></script>
+    <script src="./src/lib/domController.js"></script>
   </body>
-  <script src="./src/helpers/api.js"></script>
 </html>

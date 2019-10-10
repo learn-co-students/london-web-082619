@@ -54,3 +54,4 @@ const api = {
   destroy,
   config
 };
+
