@@ -5,7 +5,7 @@ class PetsController < ApplicationController
 
   def index
     if request.format.symbol == :json
-      return render json: Pet.all, only: [:name, :id], include: :user
+      return render json: Pet.all, only: [:name, :age], include: {:user => {:only => [:username]}}
     end
     @pets = Pet.all
   end
