@@ -8,8 +8,7 @@ const ArtworkList = props => {
         <Artwork
           key={artwork.id}
           artwork={artwork}
-          upvote={() => console.log('upvote in app', artwork.id)}
-          downvote={i % 3 === 0}
+          upvote={() => props.upvote(artwork.id)}
         />
       ))}
     </div>
