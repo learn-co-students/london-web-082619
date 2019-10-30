@@ -7,6 +7,7 @@ class CategoryFilters extends React.Component {
         <h5>Category Filters</h5>
         {this.props.categories.map(category => (
           <button
+            key={category}
             onClick={() => this.props.setSelectedCategory(category)}
             className={
               this.props.selectedCategory === category ? 'selected' : undefined

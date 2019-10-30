@@ -7,7 +7,11 @@ const TaskList = props => {
       <h5>Tasks</h5>
       {props.form}
       {props.tasks.map(task => (
-        <Task {...task} deleteTask={() => props.deleteTask(task)} />
+        <Task
+          key={task.text + task.category}
+          {...task}
+          deleteTask={() => props.deleteTask(task)}
+        />
       ))}
     </div>
   )
