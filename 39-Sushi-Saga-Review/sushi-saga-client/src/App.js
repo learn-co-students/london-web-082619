@@ -52,7 +52,7 @@ class App extends Component {
 
   handleInputChange = (event) =>{
     this.setState({
-      budget: event.target.value
+      budget: parseInt(event.target.value)
     })
   }
 
