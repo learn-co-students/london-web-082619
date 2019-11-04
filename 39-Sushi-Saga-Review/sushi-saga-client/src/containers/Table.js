@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
+import BudgetForm from '../components/BudgetForm'
 
-const Table = ({eatenSushis, budget, noBudget}) => {
+const Table = ({eatenSushis, budget, noBudget, handleInputChange, handleSubmit}) => {
 
   const renderPlates = (array) => {
     return array.map((x, index) => {
@@ -14,6 +15,7 @@ const Table = ({eatenSushis, budget, noBudget}) => {
       noBudget ?
       <h1 className="remaining">
         You're running low on cash! You have: ${ budget } remaining!
+        {< BudgetForm budget={budget} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
       </h1>
         :
       <h1 className="remaining">

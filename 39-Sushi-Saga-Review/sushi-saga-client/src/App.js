@@ -48,20 +48,32 @@ class App extends Component {
         noBudget: true
       })
     }
-    
   }
 
+  handleInputChange = (event) =>{
+    this.setState({
+      budget: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+
+    this.setState({
+      noBudget: false
+    })
+  }
 
   render() {
     const {sushis, startIndex, eatenSushis, budget, noBudget} = this.state
     const fourSushis = sushis.slice(startIndex, startIndex + 4)
 
     const finalSushi = fourSushis.map(sushi => ({...sushi, eaten: eatenSushis.includes(sushi.id)}))
-    console.log(startIndex)
+    console.log(budget)
     return (
       <div className="app">
         <SushiContainer eatSushi={this.eatSushi} nextFour={this.nextFour} sushis={finalSushi} />
-        <Table noBudget={noBudget}budget={budget} eatenSushis={eatenSushis}/>
+        <Table noBudget={noBudget} budget={budget} eatenSushis={eatenSushis} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
