@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.dog-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+img {
+  height: 15rem;
+  width: auto;
+}
