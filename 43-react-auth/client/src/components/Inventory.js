@@ -1,26 +1,11 @@
 import React from 'react'
 
 import Item from './Item'
+import API from '../API'
 
 class Inventory extends React.Component {
   state = {
-    items: [
-      {
-        id: 1,
-        name: 'Item 1',
-        description: 'Stuff'
-      },
-      {
-        id: 2,
-        name: 'Item 2',
-        description: 'Stuff'
-      },
-      {
-        id: 3,
-        name: 'Item 3',
-        description: 'Stuff'
-      }
-    ]
+    items: []
   }
 
   style = {
@@ -32,6 +17,9 @@ class Inventory extends React.Component {
 
   componentDidMount () {
     if (this.props.username === '') this.props.history.push('/signin')
+    else {
+      API.getInventory().then(items => this.setState({ items }))
+    }
   }
 
   render () {

@@ -1,8 +1,15 @@
 import { baseUrl } from './config'
 
 const signInUrl = baseUrl + '/signin'
+const validateUrl = baseUrl + '/validate'
+const inventoryUrl = baseUrl + '/inventory'
 
-const get = url => fetch(url).then(resp => resp.json())
+const get = url =>
+  fetch(url, {
+    headers: {
+      Authorization: localStorage.getItem('token')
+    }
+  }).then(resp => resp.json())
 
 const post = (url, data) =>
   fetch(url, {
@@ -15,6 +22,12 @@ const post = (url, data) =>
 
 const signIn = (username, password) => post(signInUrl, { username, password })
 
+const validate = () => get(validateUrl)
+
+const getInventory = () => get(inventoryUrl)
+
 export default {
-  signIn
+  signIn,
+  validate,
+  getInventory
 }
