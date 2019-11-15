@@ -1,5 +1,10 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
+// enlistBot
+// deselectBot
+
 const BotSpecs = props => {
   let { bot } = props;
 
@@ -75,7 +80,19 @@ const BotSpecs = props => {
       </div>
     </div>
   );
-
 };
 
-export default BotSpecs;
+const mapStateToProps = state => {
+  return {};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    enlistBot: bot =>
+      dispatch({ type: "ENLIST_BOT", payload: { botId: bot.id } }),
+    deselectBot: bot =>
+      dispatch({ type: "DESELECT_BOT", payload: { botId: bot.id } })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BotSpecs);
